@@ -67,5 +67,19 @@ def recursive_max(arr):
         else:
             return recursive_max(arr[1:])
 
+def recursive_bin_search(arr, item):
+    if arr == []:
+        return None
+    else:
+        start = 0
+        end = len(arr) - 1
+        mid = int((start+end)/2)
+        if arr[mid] == item:
+            return mid
+        elif arr[mid] > item:
+            return recursive_bin_search(arr[:mid-1], item)
+        else:
+            return recursive_bin_search(arr[mid+1:], item)
 
 print(recursive_max([1,12,3,4]))
+print(recursive_bin_search([1,5,6,7,8], 8))
