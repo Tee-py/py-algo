@@ -56,6 +56,16 @@ def recursive_count(arr):
     else:
         return 1 + recursive_count(arr[1:])
 
+def recursive_max(arr):
+    if arr == []:
+        return None
+    elif len(arr) == 1:
+        return arr[0]
+    else:
+        if arr[0] > recursive_max(arr[1:]):
+            return arr[0]
+        else:
+            return recursive_max(arr[1:])
 
 
-print(recursive_count([1,2,3,4]))
+print(recursive_max([1,12,3,4]))
