@@ -1,77 +1,75 @@
+from itertools import combinations, combinations_with_replacement 
+import threading
+import re
+from algorithms import bin_search
+from time import time
+
+
 def is_next(char, string):
-    if len(string) == 0:
+    if len(string) < 2:
         return False
-    if char == string[0]:
-        return True
-    else:
-        return False
-
-
+    return True if char == string[0] else False
 
 def comp(msg):
-    comp=""
-    i = 0
-    if len(msg)<2:
+    if len(msg) < 2:
         return msg
+    comp = ""
+    i = 0
     while i < len(msg):
         cnt = 1
         while is_next(msg[i],msg[i+1:]):
             cnt +=1
             i+=1
         comp+=f"{msg[i-1]}{cnt}" if cnt > 1 else f"{msg[i]}"
-        #print(i)
         i+=1
-        #print(i)
     return comp
 
-#print(comp("wwww"))
-
-# A Python program to print all combinations  
-# of given length with duplicates in input 
-from itertools import combinations, combinations_with_replacement 
-  
-# Get all combinations of [1, 1, 3] 
-# and length 2 
-import threading
-
+def comp_regex(msg):
+    pass
 
 
 
 def getUmbrellas(num, arr):
-    if num in arr:
+    if bin_search(arr, num):
         return 1
     lst = []
     def get_counts_thread(combs, num):
         for tup in combs:
             if sum(tup) == num:
-                #print("hello")
                 lst.append(len(tup))
     for i in range(1,len(arr)+1):
         combs = list(combinations_with_replacement(arr, i))
         thread = threading.Thread(target=get_counts_thread, args=(combs, num))
         thread.start()
-        #print("Hello")
-    
-        #for tup in combs:
-        #    if sum(tup) == num:
-        #        return len(list(tup))
-        #combs.append(list(combinations_with_replacement(arr, i)))
-    #for comb in combs:
-        #print(comb)
-        #for tup in comb:
-            #print(sum(tup))
-            #if sum(tup) == num:
-                #return len(list(tup))
     return min(lst) if lst else -1
 
 
-#lst = [1,2,3]
-#combs = []
-#for i in range(1,len(lst)):
-#    combs.append(list(combinations(lst, i)))
-#print(combs)
-#for comb in combs:
-#    for tup in comb:
-#        print(sum(tup)==2)
+#print(getUmbrellas(5,[i for i in range(40000)]))
 
-print(getUmbrellas(6, [1,7]))
+def recusive_max(arr):
+    arr.sort()
+    if len(arr) == 0:
+        None
+    if len(arr) == 1:
+        return arr[0]
+    mid = int(len(arr)/2)
+    if arr[mid] > recusive_max(arr[0:mid]):
+        return recusive_max(arr[mid:])
+    else:
+        return recusive_max(arr[:mid])
+
+
+
+start = time()
+arr = [ i for i in range(10000000)]
+end = time()
+print(f"completed in {end-start}s")
+start = time()
+print(recusive_max([4,5,3,6,7]))
+end = time()
+print(f"completed in {end-start}s")
+start = time()
+print(max([4,5,3,6,7]))
+end = time()
+print(f"completed in {end-start}s")
+

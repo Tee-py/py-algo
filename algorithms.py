@@ -92,6 +92,6 @@ def quicksort(arr):
 
 
 
-print(recursive_max([1,12,3,4]))
-print(recursive_bin_search([1,5,6,7,8], 8))
-print(quicksort([1,67,3,56,90,3,4]))
+#print(recursive_max([1,12,3,4]))
+#print(recursive_bin_search([1,5,6,7,8], 8))
+#print(quicksort([1,67,3,56,90,3,4]))
