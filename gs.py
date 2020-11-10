@@ -47,7 +47,7 @@ def getUmbrellas(num, arr):
 #print(getUmbrellas(5,[i for i in range(40000)]))
 
 def recusive_max(arr):
-    arr.sort()
+    #arr.sort()
     if len(arr) == 0:
         None
     if len(arr) == 1:
@@ -58,18 +58,37 @@ def recusive_max(arr):
     else:
         return recusive_max(arr[:mid])
 
+def normal_max(arr):
+    if len(arr) == 0:
+        return None
+    elif len(arr) == 1:
+        return arr[0]
+    else:
+        mid = int(len(arr)/2)
+        maxim = arr[mid]
+        index = mid 
+        for i in range(len(arr)):
+            if arr[i] > maxim:
+                maxim = arr[i]
+                index = i
+        return maxim
 
 
-start = time()
-arr = [ i for i in range(10000000)]
-end = time()
-print(f"completed in {end-start}s")
-start = time()
-print(recusive_max([4,5,3,6,7]))
-end = time()
-print(f"completed in {end-start}s")
-start = time()
-print(max([4,5,3,6,7]))
-end = time()
-print(f"completed in {end-start}s")
+
+#start = time()
+#arr = [ i for i in range(10000000)]
+#end = time()
+#print(f"completed in {end-start}s")
+#start = time()
+#print(recusive_max(arr))
+#end = time()
+#print(f"completed in {end-start}s")
+#start = time()
+#print(max(arr))
+#end = time()
+#print(f"completed in {end-start}s")
+#start = time()
+#print(normal_max(arr))
+#end = time()
+#print(f"completed in {end-start}s")
 
