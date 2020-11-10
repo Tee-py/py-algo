@@ -81,17 +81,18 @@ def recursive_bin_search(arr, item):
         else:
             return recursive_bin_search(arr[mid+1:], item)
 
-def quicksort(arr):
+def quicksort(arr, reverse=False):
     if len(arr) < 2:
         return arr
-    else:
-        pivot = arr[0]
-        left = [i for i in arr if i < pivot]
-        right = [i for i in arr if i > pivot]
-        return quicksort(left) + [pivot] + quicksort(right)
+    mid = int(len(arr)/2)
+    left = [i for i in arr if i < arr[mid]]
+    right = [i for i in arr if i > arr[mid]]
+    if reverse:
+        return quicksort(right, reverse=True) + [arr[mid]] + quicksort(left, reverse=True)
+    return quicksort(left) + [arr[mid]] + quicksort(right)
 
 
 
 #print(recursive_max([1,12,3,4]))
 #print(recursive_bin_search([1,5,6,7,8], 8))
-#print(quicksort([1,67,3,56,90,3,4]))
+print(quicksort([1,67,3,56,90,3,4], reverse=True))
