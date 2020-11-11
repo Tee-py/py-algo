@@ -47,16 +47,9 @@ def getUmbrellas(num, arr):
 #print(getUmbrellas(5,[i for i in range(40000)]))
 
 def recusive_max(arr):
-    #arr.sort()
-    if len(arr) == 0:
-        None
-    if len(arr) == 1:
-        return arr[0]
-    mid = int(len(arr)/2)
-    if arr[mid] > recusive_max(arr[0:mid]):
-        return recusive_max(arr[mid:])
-    else:
-        return recusive_max(arr[:mid])
+    arr.sort()
+    return None if len(arr) == 0 else arr[0] if len(arr) == 1 else recusive_max(arr[int(len(arr)/2):]) if arr[int(len(arr)/2)] > recusive_max(arr[0:int(len(arr)/2)]) else recusive_max(arr[:int(len(arr)/2)])
+  
 
 def normal_max(arr):
     if len(arr) == 0:
@@ -74,7 +67,8 @@ def normal_max(arr):
         return maxim
 
 
-
+def bin_search(arr, val):
+    return True if arr[int(len(arr)/2)] == val else bin_search(arr[int(len(arr)/2)+1:], val) if val > arr[int(len(arr)/2)] else bin_search(arr[:int(len(arr)/2)], val) if val < arr[int(len(arr)/2)] else None
 
 
 #start = time()
@@ -82,7 +76,8 @@ def normal_max(arr):
 #end = time()
 #print(f"completed in {end-start}s")
 #start = time()
-#print(recusive_max(arr))
+#print(recusive_max([5]))
+print(bin_search([1,2,3,4,5,6,7], 67))
 #end = time()
 #print(f"completed in {end-start}s")
 #start = time()

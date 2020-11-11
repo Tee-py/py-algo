@@ -15,13 +15,13 @@ class Dog:
     def __repr__(self):
         return self.name
 
-dog_1 = Dog("Kyrie", "Male")
-dog_2 = Dog("Tyler", "Female")
-dog_1.setBuddy(dog_2)
-dog_2.setBuddy(dog_1)
+#dog_1 = Dog("Kyrie", "Male")
+#dog_2 = Dog("Tyler", "Female")
+#dog_1.setBuddy(dog_2)
+#dog_2.setBuddy(dog_1)
 
-print(dog_1.buddy.__dict__)
-print(dog_2.buddy.__dict__)
+#print(dog_1.buddy.__dict__)
+#print(dog_2.buddy.__dict__)
 
 
 class CreditCard:
@@ -73,8 +73,44 @@ class CreditCard:
             self._balance -= amount
             print(f"a sum of {amount} was debited successfully")
 
-
 class Vector:
+
+    def __init__(self, dim):
+        self._coords = [0]*dim
+
+    def __len__(self):
+        return len(self._coords)
+
+    def __getitem__(self, j):
+        return self._coords[j]
+
+    def __setitem__(self, index, val):
+        self._coords[index] = val
+    
+    def __add__(self, other):
+        if len(self._coords) != len(other._coords):
+            raise ValueError("Length must be the same!!!")
+        output = Vector(len(self))
+        for i in range(len(output)):
+            output[i] = self[i] + other[i]
+        return output
+
+    def __eq__(self, other):
+        return len(self) == len(other)
+    
+    def __ne__(self, other):
+        return not len(self) == len(other)
+
+    def __str__(self):
+        return f"<{str(self._coords)[1:-1]}>"
+
+v1 = Vector(5)
+v2 = Vector(5)
+v1[4] = 15
+v2[3] = 10
+print(len(v1))
+
+
 
 
 
