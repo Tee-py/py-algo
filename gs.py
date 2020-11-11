@@ -77,7 +77,7 @@ def bin_search(arr, val):
 #print(f"completed in {end-start}s")
 #start = time()
 #print(recusive_max([5]))
-print(bin_search([1,2,3,4,5,6,7], 67))
+#print(bin_search([1,2,3,4,5,6,7], 67))
 #end = time()
 #print(f"completed in {end-start}s")
 #start = time()
