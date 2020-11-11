@@ -35,6 +35,14 @@ class CreditCard:
 
     def __repr__(self):
         return f"{self._customer} - {self._card_no}"
+    #Overloading the addition operator for the class
+    def __add__(self, cl):
+        return self._balance + cl._balance
+
+    #Overloading the boolean operator for the class Instances
+    def __bool__(self):
+        return True if self.get_balance()>0 else False
+
 
     def get_customer(self):
         return self._customer
@@ -66,13 +74,7 @@ class CreditCard:
             print(f"a sum of {amount} was debited successfully")
 
 
+class Vector:
 
-print("\n")
-card = CreditCard("Emmanuel Oluwatobi", "Kuda Bank", "3124105657", 100000)
-print(card)
-card.credit(56000)
-print(card.get_balance())
-card.credit(56000)
-card.debit(50000)
-card.debit(50000)
-print(card.get_balance())
+
+
