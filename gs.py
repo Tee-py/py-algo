@@ -73,6 +73,30 @@ def normal_max(arr):
                 index = i
         return maxim
 
+class Dog:
+
+    def __init__(self, name, sex):
+        self.name = name
+        self.sex = sex
+
+    
+    def setBuddy(self, buddy):
+        if self.__dict__.get("buddy"):
+            pass
+        else:
+            self.buddy = buddy
+            buddy.setBuddy(self)
+    
+    def __repr__(self):
+        return self.name
+
+dog_1 = Dog("Kyrie", "Male")
+dog_2 = Dog("Tyler", "Female")
+dog_1.setBuddy(dog_2)
+dog_2.setBuddy(dog_1)
+
+print(dog_1.buddy.__dict__)
+print(dog_2.buddy.__dict__)
 
 
 #start = time()
