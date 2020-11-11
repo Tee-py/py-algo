@@ -58,6 +58,14 @@ class CreditCard:
             self._balance += amount
             print("Credit Successfull")
 
+    def debit(self, amount):
+        if amount > self.get_balance():
+            print("Insufficient Funds")
+        else:
+            self._balance -= amount
+            print(f"a sum of {amount} was debited successfully")
+
+
 
 print("\n")
 card = CreditCard("Emmanuel Oluwatobi", "Kuda Bank", "3124105657", 100000)
@@ -65,5 +73,6 @@ print(card)
 card.credit(56000)
 print(card.get_balance())
 card.credit(56000)
+card.debit(50000)
+card.debit(50000)
 print(card.get_balance())
-print(card._card_no)
