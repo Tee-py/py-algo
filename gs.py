@@ -70,6 +70,15 @@ def normal_max(arr):
 def bin_search(arr, val):
     return True if arr[int(len(arr)/2)] == val else bin_search(arr[int(len(arr)/2)+1:], val) if val > arr[int(len(arr)/2)] else bin_search(arr[:int(len(arr)/2)], val) if val < arr[int(len(arr)/2)] else None
 
+#A function to generate n fibonacci numbers
+def fib(n):
+    counter, a, b = 0, 0, 1
+    while counter < n:
+        yield a
+        a,b,counter = b, a+b, counter+1
+
+#print(list(fib(1500)))
+
 
 #start = time()
 #arr = [ i for i in range(10000000)]

@@ -104,17 +104,11 @@ class Vector:
     def __delitem__(self, k):
         self._coords = [mem for mem in self._coords if mem != self[k]]
 
+
     def __str__(self):
         return f"<{str(self._coords)[1:-1]}>"
 
-v1 = Vector(5)
-v2 = Vector(5)
 
-v1[4] = 15
-v2[3] = 10
-print(v1)
-del v1[4]
-print(v1)
 
 
 
