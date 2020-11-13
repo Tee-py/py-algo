@@ -15,15 +15,6 @@ class Dog:
     def __repr__(self):
         return self.name
 
-#dog_1 = Dog("Kyrie", "Male")
-#dog_2 = Dog("Tyler", "Female")
-#dog_1.setBuddy(dog_2)
-#dog_2.setBuddy(dog_1)
-
-#print(dog_1.buddy.__dict__)
-#print(dog_2.buddy.__dict__)
-
-
 class CreditCard:
 
     def __init__(self, customer, bank, card_no, limit):
@@ -109,7 +100,11 @@ class Vector:
         return f"<{str(self._coords)[1:-1]}>"
 
 
+class Polynomial:
 
+    def __init__(self, expr):
+        self._expr = expr
+        self._members = self.extract_members()
 
 
 
