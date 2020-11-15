@@ -1,3 +1,5 @@
+import re
+
 class Dog:
 
     def __init__(self, name, sex):
@@ -106,6 +108,14 @@ class Polynomial:
         self._expr = expr
         self._members = self.extract_members()
 
+    def extract_members(self):
+        member_regex = re.compile("")
 
 
+
+class Sequence:
+
+    def __init__(self, seq_type):
+        self.type = seq_type
+        print("Initiated sequence object")
 
