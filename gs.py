@@ -27,8 +27,6 @@ def comp(msg):
 def comp_regex(msg):
     pass
 
-
-
 def getUmbrellas(num, arr):
     if bin_search(arr, num):
         return 1
@@ -77,24 +75,5 @@ def fib(n):
         yield a
         a,b,counter = b, a+b, counter+1
 
-#print(list(fib(1500)))
 
-
-#start = time()
-#arr = [ i for i in range(10000000)]
-#end = time()
-#print(f"completed in {end-start}s")
-#start = time()
-#print(recusive_max([5]))
-#print(bin_search([1,2,3,4,5,6,7], 67))
-#end = time()
-#print(f"completed in {end-start}s")
-#start = time()
-#print(max(arr))
-#end = time()
-#print(f"completed in {end-start}s")
-#start = time()
-#print(normal_max(arr))
-#end = time()
-#print(f"completed in {end-start}s")
 
