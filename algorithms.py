@@ -1,4 +1,3 @@
-
 #binary search algorithm for list
 def bin_search(lst, item):
     lst.sort()
@@ -91,9 +90,27 @@ def quicksort(arr, reverse=False):
         return quicksort(right, reverse=True) + [arr[mid]] + quicksort(left, reverse=True)
     return quicksort(left) + [arr[mid]] + quicksort(right)
 
+def insert_sort(lst):
+    for i in range(1, len(lst)):
+        curr = lst[i]
+        j = i - 1
+        while j >= 0 and lst[j] > curr:
+            lst[j+1] = lst[j]
+            j = j - 1
+        lst[j+1] = curr
+
+def select_sort(lst):
+    for i in range(len(lst)):
+        m = lst[i]
+        m_index = i
+        for j in range(i+1, len(lst)):
+            if lst[j] < m:
+                m = lst[j]
+                m_index = j
+        lst[m_index] = lst[i]
+        lst[i] = m
+    return lst
+
+print(select_sort([1,3,2,5,4,6]))
 
 
-#print(recursive_max([1,12,3,4]))
-#print(recursive_bin_search([1,5,6,7,8], 8))
-
-#print(quicksort([1,67,3,56,90,3,4], reverse=True))
