@@ -38,7 +38,6 @@ def test(string, arr):
                 count += 1
             else:
                 continue
-        print(lowest, count, word)
         if (len(string)-count) < lowest:
             lowest = (len(string) - count)
     return lowest
@@ -49,7 +48,3 @@ print(test("apbpleeeeef", ["a", "ab", "abc", "abcg", "b", "c", "dog", "e", "efd"
 # print(get_change(3, 0.01))
 # print(get_change(4, 3.14))
 # print(get_change(0.45, 0.34))
-
-# import json
-
-# json.load()

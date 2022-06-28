@@ -20,7 +20,6 @@ def decorator(func):
 
 
 def power(x, y):
-    print(x,y)
     if (y == 0): return 1
     elif (int(y % 2) == 0):
         return (power(x, int(y / 2)) *
